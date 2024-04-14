@@ -1,0 +1,536 @@
+[
+    {
+        "id": "999549da7fe60979",
+        "type": "tab",
+        "label": "Flow 8",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "8f4b37ca31f488d6",
+        "type": "predict_direction",
+        "z": "999549da7fe60979",
+        "x": 740,
+        "y": 380,
+        "wires": [
+            [
+                "3fca4ac1b3db486d",
+                "c48776752d14c529",
+                "1ac77575afbda4e7",
+                "f16966f2c4b62e4b"
+            ]
+        ]
+    },
+    {
+        "id": "96b54b810fce2baa",
+        "type": "random",
+        "z": "999549da7fe60979",
+        "name": "left infrared sensor",
+        "low": "0",
+        "high": "1",
+        "inte": "true",
+        "property": "left_IR",
+        "x": 450,
+        "y": 260,
+        "wires": [
+            [
+                "cbb009325318b84d"
+            ]
+        ]
+    },
+    {
+        "id": "0dd6444e2f10dde1",
+        "type": "inject",
+        "z": "999549da7fe60979",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "left_IR",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "p": "mid_IR",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "p": "right_IR",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "p": "ultrasonic",
+                "v": "0",
+                "vt": "num"
+            },
+            {
+                "p": "direction",
+                "v": "stop",
+                "vt": "str"
+            },
+            {
+                "p": "buzzer",
+                "v": "0",
+                "vt": "num"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 210,
+        "y": 380,
+        "wires": [
+            [
+                "96b54b810fce2baa"
+            ]
+        ]
+    },
+    {
+        "id": "cbb009325318b84d",
+        "type": "random",
+        "z": "999549da7fe60979",
+        "name": "middle infrared sensor",
+        "low": "0",
+        "high": "1",
+        "inte": "true",
+        "property": "mid_IR",
+        "x": 460,
+        "y": 340,
+        "wires": [
+            [
+                "6fe5d3106d158a59"
+            ]
+        ]
+    },
+    {
+        "id": "6fe5d3106d158a59",
+        "type": "random",
+        "z": "999549da7fe60979",
+        "name": "right infrared sensor",
+        "low": "0",
+        "high": "1",
+        "inte": "true",
+        "property": "right_IR",
+        "x": 460,
+        "y": 420,
+        "wires": [
+            [
+                "129c37e14dc6c0ba"
+            ]
+        ]
+    },
+    {
+        "id": "129c37e14dc6c0ba",
+        "type": "random",
+        "z": "999549da7fe60979",
+        "name": "ultrasonic sensor",
+        "low": "0",
+        "high": "1",
+        "inte": "true",
+        "property": "ultrasonic",
+        "x": 450,
+        "y": 500,
+        "wires": [
+            [
+                "8f4b37ca31f488d6"
+            ]
+        ]
+    },
+    {
+        "id": "3fca4ac1b3db486d",
+        "type": "debug",
+        "z": "999549da7fe60979",
+        "name": "direction",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "direction",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 980,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "c48776752d14c529",
+        "type": "ui_text",
+        "z": "999549da7fe60979",
+        "group": "9a6a5b50.f601c8",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "name": "Motor driver",
+        "label": "Vehicle direction",
+        "format": "{{msg.direction}}",
+        "layout": "col-center",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": "16",
+        "color": "#000000",
+        "x": 990,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "70128aca86ab3da0",
+        "type": "ui_chart",
+        "z": "999549da7fe60979",
+        "name": "",
+        "group": "0f733cf5c569ea6d",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-1",
+        "ymax": "1",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 1310,
+        "y": 440,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "1ac77575afbda4e7",
+        "type": "switch",
+        "z": "999549da7fe60979",
+        "name": "",
+        "property": "direction",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "left",
+                "vt": "str"
+            },
+            {
+                "t": "eq",
+                "v": "right",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 3,
+        "x": 970,
+        "y": 440,
+        "wires": [
+            [
+                "ba515b6c2e3f08d9"
+            ],
+            [
+                "dd516b69551f6257"
+            ],
+            [
+                "aef906b325feb231"
+            ]
+        ]
+    },
+    {
+        "id": "ba515b6c2e3f08d9",
+        "type": "change",
+        "z": "999549da7fe60979",
+        "name": "left",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1130,
+        "y": 440,
+        "wires": [
+            [
+                "70128aca86ab3da0"
+            ]
+        ]
+    },
+    {
+        "id": "dd516b69551f6257",
+        "type": "change",
+        "z": "999549da7fe60979",
+        "name": "right",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "-1",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1130,
+        "y": 480,
+        "wires": [
+            [
+                "70128aca86ab3da0"
+            ]
+        ]
+    },
+    {
+        "id": "aef906b325feb231",
+        "type": "change",
+        "z": "999549da7fe60979",
+        "name": "stop or out",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1150,
+        "y": 520,
+        "wires": [
+            [
+                "70128aca86ab3da0"
+            ]
+        ]
+    },
+    {
+        "id": "5b17036bd1732b4e",
+        "type": "change",
+        "z": "999549da7fe60979",
+        "name": "buzzer",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "true",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 240,
+        "wires": [
+            [
+                "112ce099091b0868"
+            ]
+        ]
+    },
+    {
+        "id": "112ce099091b0868",
+        "type": "ui_led",
+        "z": "999549da7fe60979",
+        "order": 1,
+        "group": "6ecdc158e4c09404",
+        "width": "6",
+        "height": "6",
+        "label": "",
+        "labelPlacement": "left",
+        "labelAlignment": "left",
+        "colorForValue": [
+            {
+                "color": "#ff0000",
+                "value": "false",
+                "valueType": "bool"
+            },
+            {
+                "color": "#008000",
+                "value": "true",
+                "valueType": "bool"
+            }
+        ],
+        "allowColorForValueInMessage": false,
+        "shape": "circle",
+        "showGlow": true,
+        "name": "",
+        "x": 1270,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "f16966f2c4b62e4b",
+        "type": "switch",
+        "z": "999549da7fe60979",
+        "name": "",
+        "property": "direction",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "eq",
+                "v": "stop",
+                "vt": "str"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 970,
+        "y": 260,
+        "wires": [
+            [
+                "5b17036bd1732b4e"
+            ],
+            [
+                "88bc3c038c255dca"
+            ]
+        ]
+    },
+    {
+        "id": "88bc3c038c255dca",
+        "type": "change",
+        "z": "999549da7fe60979",
+        "name": "buzzer",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "false",
+                "tot": "bool"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 1110,
+        "y": 280,
+        "wires": [
+            [
+                "112ce099091b0868"
+            ]
+        ]
+    },
+    {
+        "id": "2cf0ba61e02eb397",
+        "type": "ui_spacer",
+        "z": "999549da7fe60979",
+        "name": "spacer",
+        "group": "13451c6d.eed4d4",
+        "order": 3,
+        "width": 1,
+        "height": 1
+    },
+    {
+        "id": "9a6a5b50.f601c8",
+        "type": "ui_group",
+        "name": "Direction",
+        "tab": "85be125fdfb62327",
+        "order": 1,
+        "disp": true,
+        "width": 6,
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "0f733cf5c569ea6d",
+        "type": "ui_group",
+        "name": "direction chart",
+        "tab": "85be125fdfb62327",
+        "order": 8,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6ecdc158e4c09404",
+        "type": "ui_group",
+        "name": "buzzer",
+        "tab": "85be125fdfb62327",
+        "order": 3,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "13451c6d.eed4d4",
+        "type": "ui_group",
+        "name": "Valve 3",
+        "tab": "609b18b9.e42da8",
+        "order": 5,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "85be125fdfb62327",
+        "type": "ui_tab",
+        "name": "Line following vehicle",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "609b18b9.e42da8",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
